@@ -1,7 +1,22 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'dart:ui';
 
 void main() {
-  runApp(MyApp());
+  // runApp(MyApp());
+  runApp(
+    Center(
+      child: Text(
+        "RECRUTER",
+        textDirection: TextDirection.ltr,
+        style: TextStyle(
+          fontSize: 50,
+          background: Paint()..color = Colors.blue,
+        ),
+      ),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
