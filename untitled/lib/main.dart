@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -6,7 +8,8 @@ import 'dart:ui';
 //Выполнение приложений на Flutter начинается с функции Main
 
 void main() {
-  runApp(HomePage());
+  // runApp(HomePage());
+  runApp(Active());
 }
 
 class HomePage extends StatelessWidget {
@@ -14,40 +17,113 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // throw UnimplementedError();
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.greenAccent,
-        appBar: AppBar(
-          title: Text("HRecruter"),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Container(
-            padding: EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                LinearProgressIndicator(value: 23),
-                Text(
-                  '23 %',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-                Text(
-                  'Приложение загружается',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ],
-            ),
+        home: Scaffold(
+      backgroundColor: Colors.greenAccent,
+      appBar: AppBar(
+        title: Text("HRecruter"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              LinearProgressIndicator(value: 23),
+              Text(
+                '23 %',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              Text(
+                'Приложение загружается',
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+            ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: null ,
-          child: Icon(Icons.wallet_membership),
-        ),
-      )
-    );
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.wallet_membership),
+      ),
+    ));
   }
 }
 
+class Active extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _ActiveState(); //реализация класса состояния
+  }
+}
+
+class _ActiveState extends State<Active> {
+  bool _loading;
+  double _progressValue;
+
+  @override
+  void initState() {
+    _loading = false;
+    _progressValue = 0.0;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+      backgroundColor: Colors.greenAccent,
+      appBar: AppBar(
+        title: Text("HRecruter"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.all(16),
+          child: _loading
+              ? Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    LinearProgressIndicator(value: 23),
+                    Text(
+                      '${(_progressValue * 100).round()}%',
+                      style: TextStyle(color: Colors.white, fontSize: 20),
+                    )
+                  ],
+                )
+              : Text(
+                  'Приложение загружено',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _loading = !_loading;
+            _updateProgress();
+          });
+        },
+        child: Icon(Icons.wallet_membership),
+      ),
+    ));
+  }
+
+  void _updateProgress() {
+    const oneSec = const Duration(seconds: 1);
+    Timer.periodic(oneSec, (Timer t) {
+      setState(() {
+        _progressValue += 0.2;
+        if(_progressValue.toStringAsFixed(1) =='1.0'){
+          _loading = false;
+              t.cancel();
+          _progressValue = 0.0;
+          return;
+        }
+      });
+    });
+  }
+}
 // void main() {
 //   // runApp(MyApp());
 //   runApp(
