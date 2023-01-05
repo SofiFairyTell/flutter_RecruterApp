@@ -8,8 +8,82 @@ import 'dart:ui';
 //Выполнение приложений на Flutter начинается с функции Main
 
 void main() {
-  // runApp(HomePage());
-  runApp(Active());
+  // runApp(HomePage()); //тест с StatelesWidget
+  //runApp(Active()); //тест с StatefullWidget
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => const Main(),
+      '/settings': (context) => const SettingsPage()
+    },
+  ));
+}
+
+class Main extends StatelessWidget {
+  const Main({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.greenAccent,
+        body: SafeArea(
+            child: Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+              const Text('Main Page'),
+              TextButton.icon(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    foregroundColor:
+                        MaterialStateProperty.all(Colors.deepPurpleAccent)),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/settings');
+                },
+                icon: const Icon(Icons.settings),
+                label: const Text('Перейти в настройки'),
+              ),
+            ]))));
+  }
+}
+
+class SettingsPage extends StatelessWidget {
+  const SettingsPage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+            child: Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+              const Text('Settings Page'),
+              TextButton.icon(
+                style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(Colors.blue),
+                    foregroundColor:
+                        MaterialStateProperty.all(Colors.deepPurpleAccent)),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.arrow_back),
+                label: const Text('Назад'),
+              ),
+                      TextButton.icon(
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(Colors.blue),
+                            foregroundColor:
+                            MaterialStateProperty.all(Colors.deepPurpleAccent)),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: const Icon(Icons.arrow_back),
+                        label: const Text('перейти куда-то еще'),
+                      ),
+            ]))));
+  }
 }
 
 class HomePage extends StatelessWidget {
@@ -114,9 +188,9 @@ class _ActiveState extends State<Active> {
     Timer.periodic(oneSec, (Timer t) {
       setState(() {
         _progressValue += 0.2;
-        if(_progressValue.toStringAsFixed(1) =='1.0'){
+        if (_progressValue.toStringAsFixed(1) == '1.0') {
           _loading = false;
-              t.cancel();
+          t.cancel();
           _progressValue = 0.0;
           return;
         }
