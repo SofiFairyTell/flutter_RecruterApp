@@ -1,93 +1,79 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:ui';
+import 'Widgets/auth/loginPage.dart';
+import 'Widgets/auth/regPage.dart';
+
+//Выполнение приложений на Flutter начинается с функции Main
 
 void main() {
-  // runApp(MyApp());
-  runApp(
-    Center(
-      child: Text(
-        "RECRUTER",
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-          fontSize: 50,
-          background: Paint()..color = Colors.blue,
-        ),
-      ),
-    ),
-  );
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => const Main(),
+      '/settings': (context) => const SettingsPage(),
+      '/registration': (context) => const RegPage()
+    },
+  ));
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage(title: 'Второе   '),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class Main extends StatelessWidget {
+  const Main({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        centerTitle: true,
+        title: Text('Меню'),
+        backgroundColor: Colors.green[600],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      backgroundColor: Colors.greenAccent,
+      body: SafeArea(
+        child: Center(
+          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+            const Text('Main Page'),
+            TextButton.icon(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.blue),
+                  foregroundColor:
+                      MaterialStateProperty.all(Colors.deepPurpleAccent)),
+              onPressed: () {
+                Navigator.pushNamed(context, '/settings');
+              },
+              icon: const Icon(Icons.settings),
+              label: const Text('Перейти в настройки'),
+            ),
+          ]),
+        ),
+      ),
+      drawer: Drawer(
+        child: new ListView(
           children: <Widget>[
-            Text(
-              'Нажали на кнопку много раз:',
+            new DrawerHeader(
+              margin: EdgeInsets.zero,
+              padding: EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.brown),
+                accountName: Text('Ярослава Х.'),
+                accountEmail: Text('yar@gmail.com'),
+                currentAccountPicture: Container(
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle, color: Colors.lightGreen),
+                ),
+              ),
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            new ListTile(
+              title: new Text('Личная страница'),
+              onTap: () {},
             ),
-            Text(
-              'А вот тут мы добавили картинку!',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            Container(
-              color: Colors.white,
-              child: Image.network("https://picsum.photos/250?image=9"),
-            ),
-            Container(
-              color: Colors.white,
-              child: Image.asset("/owl.jpg"),
+            new ListTile(
+              title: new Text('Настройки'),
+              onTap: () {},
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
