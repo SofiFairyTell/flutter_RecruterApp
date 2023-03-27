@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'Widgets/auth/loginPage.dart';
-import 'Widgets/auth/regPage.dart';
+import 'package:untitled/screens/RegistrationWidget.dart';
+import 'package:untitled/screens/SettingWidget.dart';
+import 'package:untitled/screens/DrawerWidget.dart';
 
 //Выполнение приложений на Flutter начинается с функции Main
 
@@ -11,8 +12,8 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => const Main(),
-      '/settings': (context) => const SettingsPage(),
-      '/registration': (context) => const RegPage()
+      '/settings': (context) => const SettingsWidget(),
+      '/registration': (context) => const RegistrationWidget()
     },
   ));
 }
@@ -47,33 +48,7 @@ class Main extends StatelessWidget {
           ]),
         ),
       ),
-      drawer: Drawer(
-        child: new ListView(
-          children: <Widget>[
-            new DrawerHeader(
-              margin: EdgeInsets.zero,
-              padding: EdgeInsets.zero,
-              child: UserAccountsDrawerHeader(
-                decoration: BoxDecoration(color: Colors.brown),
-                accountName: Text('Ярослава Х.'),
-                accountEmail: Text('yar@gmail.com'),
-                currentAccountPicture: Container(
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle, color: Colors.lightGreen),
-                ),
-              ),
-            ),
-            new ListTile(
-              title: new Text('Личная страница'),
-              onTap: () {},
-            ),
-            new ListTile(
-              title: new Text('Настройки'),
-              onTap: () {},
-            ),
-          ],
-        ),
-      ),
+      drawer: DrawerWidget(),
     );
   }
 }

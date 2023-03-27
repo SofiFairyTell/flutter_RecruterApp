@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class RegPage extends StatelessWidget {
-  const RegPage({Key key}) : super(key: key);
+class RegistrationWidget extends StatelessWidget {
+  const RegistrationWidget({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

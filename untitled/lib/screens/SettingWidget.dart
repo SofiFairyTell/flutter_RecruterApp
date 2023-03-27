@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/Widgets/auth/regPage.dart';
+import 'package:untitled/screens/RegistrationWidget.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsWidget extends StatelessWidget {
   const SettingsPage({Key key}) : super(key: key);
 
   @override
@@ -32,7 +32,7 @@ class SettingsPage extends StatelessWidget {
                         MaterialStateProperty.all(Colors.deepPurpleAccent)),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const RegPage();
+                    return const RegistrationWidget();
                   }));
                 },
                 icon: const Icon(Icons.arrow_back),
