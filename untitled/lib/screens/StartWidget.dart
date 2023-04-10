@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/screens/ProfileWidget.dart';
+import 'package:untitled/screens/RegistrationWidget.dart';
 
 class StartWidget extends StatelessWidget {
   @override
@@ -23,12 +25,12 @@ class StartWidget extends StatelessWidget {
               ),
             ),
             SizedBox(height: 50),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ButtonWidget(text: 'Регистрация'),
+                ButtonWidget(text: 'Регистрация',onPressed: () => goToRegistration(context)),
                 SizedBox(width: 20),
-                ButtonWidget(text: 'Вход'),
+                ButtonWidget(text: 'Вход',onPressed: () => goToProfileWidget(context)),
               ],
             ),
           ],
@@ -38,11 +40,12 @@ class StartWidget extends StatelessWidget {
   }
 }
 
+
 class ButtonWidget extends StatelessWidget {
   final String text;
-  final Function()? onPressed;
+  final Function onPressed;
 
-  const ButtonWidget({required this.text, this.onPressed});
+  const ButtonWidget({@required this.text, @required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -57,4 +60,23 @@ class ButtonWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+
+void goToRegistration(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => RegistrationWidget(),
+    ),
+  );
+}
+
+void goToProfileWidget(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => ProfileWidget(),
+    ),
+  );
 }

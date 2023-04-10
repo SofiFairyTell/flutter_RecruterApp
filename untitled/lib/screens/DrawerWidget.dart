@@ -8,9 +8,22 @@ class DrawerWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-            child: Text(
-              'Меню',
-              style: TextStyle(color: Colors.white, fontSize: 24),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage('assets/images/owl.jpg'),
+                ),
+                SizedBox(width: 10),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Имя пользователя', style: TextStyle(fontSize: 16)),
+                    Text('example@mail.com', style: TextStyle(fontSize: 12)),
+                  ],
+                ),
+              ],
             ),
             decoration: BoxDecoration(
               color: Colors.blue,

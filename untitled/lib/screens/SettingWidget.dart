@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/screens/RegistrationWidget.dart';
+
+import 'DrawerWidget.dart';
+
+final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class SettingsWidget extends StatelessWidget {
   const SettingsWidget({Key key}) : super(key: key);
@@ -7,6 +10,12 @@ class SettingsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:  AppBar(title: Text('Стартовая страница'),
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () => _scaffoldKey.currentState?.openDrawer(),
+        ),),
+      drawer: DrawerWidget(),
         backgroundColor: Colors.white,
         body: SafeArea(
             child: Center(
@@ -25,19 +34,7 @@ class SettingsWidget extends StatelessWidget {
                 icon: const Icon(Icons.arrow_back),
                 label: const Text('Назад'),
               ),
-              TextButton.icon(
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue),
-                    foregroundColor:
-                        MaterialStateProperty.all(Colors.deepPurpleAccent)),
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const RegistrationWidget();
-                  }));
-                },
-                icon: const Icon(Icons.arrow_back),
-                label: const Text('Регистрация'),
-              ),
-            ]))));
+            ]))),
+);
   }
 }

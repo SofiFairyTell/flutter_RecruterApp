@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:untitled/screens/RegistrationWidget.dart';
 import 'package:untitled/screens/SettingWidget.dart';
-import 'package:untitled/screens/DrawerWidget.dart';
+import 'package:untitled/screens/StartWidget.dart';
 
 //Выполнение приложений на Flutter начинается с функции Main
 
@@ -26,29 +26,12 @@ class Main extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Меню'),
+        title: Text('RECRUTER APP'),
         backgroundColor: Colors.green[600],
       ),
       backgroundColor: Colors.greenAccent,
-      body: SafeArea(
-        child: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text('Main Page'),
-            TextButton.icon(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  foregroundColor:
-                      MaterialStateProperty.all(Colors.deepPurpleAccent)),
-              onPressed: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-              icon: const Icon(Icons.settings),
-              label: const Text('Перейти в настройки'),
-            ),
-          ]),
-        ),
-      ),
-      drawer: DrawerWidget(),
+      body: StartWidget(),
+      //drawer: DrawerWidget(),
     );
   }
 }
