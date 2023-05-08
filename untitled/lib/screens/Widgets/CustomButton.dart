@@ -16,7 +16,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 150,
-      height: 200,
+      height: 150,
       child: ElevatedButton(
         onPressed: onPressed,
         child: Column(
@@ -24,12 +24,24 @@ class CustomButton extends StatelessWidget {
           children: [
             Text(
               firstText,
-              style: TextStyle(fontSize: 14),
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+              ),
             ),
-            // Text(
-            //   secondText,
-            //   style: TextStyle(fontSize: 14),
-            // ),
+            const SizedBox(width: 30),
+            Text(
+              secondText,
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 10,
+                fontWeight: FontWeight.normal,
+                fontStyle: FontStyle.normal,
+              ),
+            ),
+
           ],
         ),
       ),

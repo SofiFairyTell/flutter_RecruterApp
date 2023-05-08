@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/main.dart';
 
 class DrawerWidget extends StatelessWidget {
   @override
@@ -71,8 +72,21 @@ class DrawerWidget extends StatelessWidget {
               // TODO: Обработчик нажатия на элемент "Настройки"
             },
           ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: Text('Выход'),
+            onTap: () => goToStartWidget(context)),
         ],
       ),
     );
   }
+}
+
+void goToStartWidget(BuildContext context) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => Main(),
+    ),
+  );
 }

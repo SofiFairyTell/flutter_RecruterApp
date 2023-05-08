@@ -37,13 +37,13 @@ class ProfileWidget extends StatelessWidget {
                     children: [
                       CustomButton(
                         firstText: 'Вакансии',
-                        secondText:'',
+                        secondText:'Получите данные от проектной команды',
                         onPressed: () => print('Pressed Вакансии'),
                       ),
                       const SizedBox(width: 10),
                       CustomButton(
                         firstText: 'Кандидаты',
-                        secondText:'',
+                        secondText:'Подходящие участники команд',
                         onPressed: () => print('Pressed Кандидаты'),
                       ),
                     ],
@@ -56,13 +56,13 @@ class ProfileWidget extends StatelessWidget {
                     children: [
                       CustomButton(
                         firstText: 'Аналитика',
-                        secondText:'',
+                        secondText:'Выполните подбор проектной команды',
                         onPressed: () => print('Pressed Аналитика'),
                       ),
                       const SizedBox(width: 10),
                       CustomButton(
                         firstText: 'Чаты',
-                        secondText:'',
+                        secondText:'Общайтесь с проектной командой',
                         onPressed: () => print('Pressed Чаты'),
                       ),
                     ],

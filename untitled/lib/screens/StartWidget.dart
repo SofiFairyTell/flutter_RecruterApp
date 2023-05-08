@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/screens/ProfileWidget.dart';
-import 'package:untitled/screens/RegistrationWidget.dart';
+import 'package:untitled/screens/RegistrationScreen.dart';
 
 class StartWidget extends StatelessWidget {
+  StartWidget({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +69,7 @@ void goToRegistration(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => RegistrationWidget(),
+      builder: (context) => RegistrationScreen(),
     ),
   );
 }

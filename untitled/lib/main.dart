@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:untitled/screens/RegistrationWidget.dart';
+import 'package:untitled/screens/RegistrationScreen.dart';
 import 'package:untitled/screens/SettingWidget.dart';
 import 'package:untitled/screens/StartWidget.dart';
 
@@ -13,7 +13,7 @@ void main() {
     routes: {
       '/': (context) => const Main(),
       '/settings': (context) => const SettingsWidget(),
-      '/registration': (context) => const RegistrationWidget()
+      '/registration': (context) =>  RegistrationScreen()
     },
   ));
 }
