@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'DrawerWidget.dart';
+import 'Widgets/CustomButton.dart';
 
 class ProfileWidget extends StatelessWidget {
   ProfileWidget({Key key}) : super(key: key);
@@ -25,24 +26,53 @@ class ProfileWidget extends StatelessWidget {
         ),
       ),
       backgroundColor: Colors.white,
-      body: SafeArea(
+      body:  SafeArea(
           child: Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-            const Text('Панель пользователя'),
-            TextButton.icon(
-              style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.blue),
-                  foregroundColor:
-                      MaterialStateProperty.all(Colors.deepPurpleAccent)),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back),
-              label: const Text('Назад'),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomButton(
+                        firstText: 'Вакансии',
+                        secondText:'',
+                        onPressed: () => print('Pressed Вакансии'),
+                      ),
+                      const SizedBox(width: 10),
+                      CustomButton(
+                        firstText: 'Кандидаты',
+                        secondText:'',
+                        onPressed: () => print('Pressed Кандидаты'),
+                      ),
+                    ],
+                  ),
+                ),
+
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomButton(
+                        firstText: 'Аналитика',
+                        secondText:'',
+                        onPressed: () => print('Pressed Аналитика'),
+                      ),
+                      const SizedBox(width: 10),
+                      CustomButton(
+                        firstText: 'Чаты',
+                        secondText:'',
+                        onPressed: () => print('Pressed Чаты'),
+                      ),
+                    ],
+                  ),
+                ),
+
+              ],
             ),
-          ]))),
+          ),
+      ),
       drawer: DrawerWidget(),
     );
   }
