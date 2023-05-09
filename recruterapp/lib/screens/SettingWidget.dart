@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
 import 'DrawerWidget.dart';
+import 'Widgets/AppBarCustom.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class SettingsWidget extends StatelessWidget {
-  const SettingsWidget({Key key}) : super(key: key);
+   SettingsWidget({Key key}) : super(key: key);
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  AppBar(title: Text('Стартовая страница'),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () => _scaffoldKey.currentState?.openDrawer(),
-        ),),
+      key: scaffoldKey,
+      appBar: AppBarCustom(scaffoldKey:scaffoldKey),
       drawer: DrawerWidget(),
         backgroundColor: Colors.white,
         body: SafeArea(

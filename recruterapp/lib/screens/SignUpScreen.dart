@@ -82,18 +82,28 @@ class _SignUpScreen extends State<SignUpScreen>  {
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: ElevatedButton(
-                  onPressed: () => signUp,
-                  child: Text('Зарегистрироваться'),
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+                child: Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () => Navigator.of(context).pop(),
                     ),
-                  ),
+                    SizedBox(width: 8), // Пространство между кнопками
+                    ElevatedButton(
+                      onPressed: () => signUp(),
+                      child: Text('Регистрация'),
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ],
-          ),
-        ));
+         ],),
+    ),
+
+    );
   }
 }

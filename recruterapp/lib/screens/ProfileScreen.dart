@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'DrawerWidget.dart';
 import 'Widgets/CustomButton.dart';
+import 'Widgets/AppBarCustom.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key key}) : super(key: key);
@@ -11,20 +12,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBar(
-        title: Text(' '),
-        leading: IconButton(
-          icon: Icon(Icons.menu),
-          onPressed: () {
-            if (scaffoldKey.currentState?.isDrawerOpen) {
-              scaffoldKey.currentState?.openEndDrawer();
-            } else {
-              scaffoldKey.currentState?.openDrawer();
-            }
-            ;
-          },
-        ),
-      ),
+      appBar: AppBarCustom(scaffoldKey:scaffoldKey),
       backgroundColor: Colors.white,
       body:  SafeArea(
           child: Center(
@@ -38,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
                       CustomButton(
                         firstText: 'Вакансии',
                         secondText:'Получите данные от проектной команды',
-                        onPressed: () => print('Pressed Вакансии'),
+                        onPressed: () => Navigator.pushNamed(context,'/vac'),
                       ),
                       const SizedBox(width: 10),
                       CustomButton(
@@ -77,3 +65,4 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+

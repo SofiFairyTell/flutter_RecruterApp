@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recruterapp/main.dart';
+import 'package:recruterapp/screens/VacancScreen.dart';
 
 class DrawerWidget extends StatelessWidget {
   @override
@@ -31,18 +32,14 @@ class DrawerWidget extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Настройки'),
-            onTap: () {
-              // TODO: Обработчик нажатия на элемент "Настройки"
-            },
+            leading: Icon(Icons.admin_panel_settings),
+            title: Text('Панель'),
+            onTap: ()=> Navigator.pushNamed(context,'/profile'),
           ),
           ListTile(
             leading: Icon(Icons.work),
             title: Text('Вакансии'),
-            onTap: () {
-              // TODO: Обработчик нажатия на элемент "Вакансии"
-            },
+            onTap: ()=> Navigator.pushNamed(context,'/vac'),
           ),
           ListTile(
             leading: Icon(Icons.person),
@@ -68,25 +65,28 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.settings),
             title: Text('Настройки'),
-            onTap: () {
-              // TODO: Обработчик нажатия на элемент "Настройки"
-            },
+            onTap: ()=> Navigator.pushNamed(context,'/settings'),
           ),
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Выход'),
-            onTap: () => goToStartWidget(context)),
+            onTap: () => goToScreen(context,'/')),
         ],
       ),
     );
   }
 }
 
-void goToStartWidget(BuildContext context) {
+
+void goToScreen(BuildContext context, String route) {
+  Navigator.pushNamed(context, route);
+}
+
+void goToVacanScreen(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => Main(),
+      builder: (context) => VacancScreen(),
     ),
   );
 }

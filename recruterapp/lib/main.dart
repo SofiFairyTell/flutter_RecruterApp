@@ -5,6 +5,7 @@ import 'package:recruterapp/screens/ProfileScreen.dart';
 import 'package:recruterapp/screens/SignUpScreen.dart';
 import 'package:recruterapp/screens/SettingWidget.dart';
 import 'package:recruterapp/screens/StartWidget.dart';
+import 'package:recruterapp/screens/VacancScreen.dart';
 
 //Выполнение приложений на Flutter начинается с функции Main
 
@@ -13,9 +14,10 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => const Main(),
-      '/settings': (context) => const SettingsWidget(),
+      '/settings': (context) => SettingsWidget(),
       '/signup': (context) =>  SignUpScreen(),
       '/profile': (context) =>  ProfileScreen(),
+      '/vac':(context) => VacancScreen(),
     },
   ));
 }
