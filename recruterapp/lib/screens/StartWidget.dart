@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/screens/ProfileWidget.dart';
-import 'package:untitled/screens/RegistrationScreen.dart';
+import 'package:recruterapp/screens/ProfileScreen.dart';
+import 'package:recruterapp/screens/SignUpScreen.dart';
 
 class StartWidget extends StatelessWidget {
   StartWidget({Key key}) : super(key: key);
@@ -69,7 +69,7 @@ void goToRegistration(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => RegistrationScreen(),
+      builder: (context) => SignUpScreen(),
     ),
   );
 }
@@ -78,7 +78,7 @@ void goToProfileWidget(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => ProfileWidget(),
+      builder: (context) => ProfileScreen(),
     ),
   );
 }

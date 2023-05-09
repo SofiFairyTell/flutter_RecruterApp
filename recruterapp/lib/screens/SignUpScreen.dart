@@ -1,11 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:untitled/screens/Widgets/PhotoWidget.dart';
+import 'package:recruterapp/screens/Widgets/PhotoWidget.dart';
 
-class RegistrationScreen extends StatelessWidget {
-  RegistrationScreen({Key key}) : super(key: key);
+
+class SignUpScreen extends StatefulWidget {
+  const   SignUpScreen({Key key}) : super(key: key);
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreen();
+}
+
+
+class _SignUpScreen extends State<SignUpScreen>  {
+
   final passwordController = TextEditingController();
-
 
   @override
   Widget build(BuildContext context) {

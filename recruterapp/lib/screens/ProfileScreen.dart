@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'DrawerWidget.dart';
 import 'Widgets/CustomButton.dart';
 
-class ProfileWidget extends StatelessWidget {
-  ProfileWidget({Key key}) : super(key: key);
+class ProfileScreen extends StatelessWidget {
+  ProfileScreen({Key key}) : super(key: key);
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 

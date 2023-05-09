@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:untitled/main.dart';
+import 'package:recruterapp/main.dart';
 
 class DrawerWidget extends StatelessWidget {
   @override
