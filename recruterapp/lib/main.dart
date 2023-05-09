@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:recruterapp/screens/ProfileScreen.dart';
 import 'package:recruterapp/screens/SignUpScreen.dart';
 import 'package:recruterapp/screens/SettingWidget.dart';
 import 'package:recruterapp/screens/StartWidget.dart';
@@ -13,7 +14,8 @@ void main() {
     routes: {
       '/': (context) => const Main(),
       '/settings': (context) => const SettingsWidget(),
-      '/registration': (context) =>  SignUpScreen()
+      '/signup': (context) =>  SignUpScreen(),
+      '/profile': (context) =>  ProfileScreen(),
     },
   ));
 }

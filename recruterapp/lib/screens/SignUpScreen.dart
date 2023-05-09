@@ -13,7 +13,15 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreen extends State<SignUpScreen>  {
 
-  final passwordController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+
+  Future<void> signUp()
+  {
+    final navigator = Navigator.of(context);
+    navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +48,7 @@ class _SignUpScreen extends State<SignUpScreen>  {
                     labelText: 'ФИО',
                     prefixIcon: Icon(Icons.person),
                   ),
+                  controller: nameController,
                 ),
               ),
 
@@ -52,6 +61,7 @@ class _SignUpScreen extends State<SignUpScreen>  {
                     labelText: 'EMAIL',
                     prefixIcon: Icon(Icons.email),
                   ),
+                  controller: emailController,
                 ),
               ),
 
@@ -73,7 +83,7 @@ class _SignUpScreen extends State<SignUpScreen>  {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: ElevatedButton(
-                  onPressed: () => print('Register button was pressed'),
+                  onPressed: () => signUp,
                   child: Text('Зарегистрироваться'),
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
