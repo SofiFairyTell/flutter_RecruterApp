@@ -12,23 +12,32 @@ class DrawerWidget extends StatelessWidget {
           DrawerHeader(
             child: Row(
               children: [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage('assets/images/owl.jpg'),
-                ),
-                SizedBox(width: 10),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Имя пользователя', style: TextStyle(fontSize: 16)),
+                    Text('Ярослава К', style: TextStyle(fontSize: 16)),
                     Text('example@mail.com', style: TextStyle(fontSize: 12)),
+                    Text('Фехтование.Дизайн. Маркетинг.HR', style: TextStyle(fontSize: 12)),
                   ],
                 ),
+                SizedBox(width: 10),
+                Container(
+                  width:50,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/userlogo.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+
               ],
             ),
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Color.fromRGBO(217, 146, 85, 100),
             ),
           ),
           ListTile(
@@ -44,9 +53,7 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.person),
             title: Text('Кандидаты'),
-            onTap: () {
-              // TODO: Обработчик нажатия на элемент "Кандидаты"
-            },
+            onTap:  ()=> Navigator.pushNamed(context,'/candidats'),
           ),
           ListTile(
             leading: Icon(Icons.analytics),

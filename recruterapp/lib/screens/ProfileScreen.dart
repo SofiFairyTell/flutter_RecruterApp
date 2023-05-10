@@ -32,7 +32,7 @@ class ProfileScreen extends StatelessWidget {
                       CustomButton(
                         firstText: 'Кандидаты',
                         secondText:'Подходящие участники команд',
-                        onPressed: () => print('Pressed Кандидаты'),
+                        onPressed: () => Navigator.pushNamed(context,'/candidats'),
                       ),
                     ],
                   ),

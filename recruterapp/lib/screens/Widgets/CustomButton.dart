@@ -18,6 +18,9 @@ class CustomButton extends StatelessWidget {
       width: 150,
       height: 150,
       child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary:Color.fromRGBO(193, 200, 219, 100)
+        ),
         onPressed: onPressed,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

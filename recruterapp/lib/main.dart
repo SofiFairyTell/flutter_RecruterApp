@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:recruterapp/screens/CandidatScreen.dart';
 import 'package:recruterapp/screens/ProfileScreen.dart';
 import 'package:recruterapp/screens/SignUpScreen.dart';
 import 'package:recruterapp/screens/SettingWidget.dart';
@@ -18,6 +19,7 @@ void main() {
       '/signup': (context) =>  SignUpScreen(),
       '/profile': (context) =>  ProfileScreen(),
       '/vac':(context) => VacancScreen(),
+      '/candidats':(context) => CandidatScreen(),
     },
   ));
 }
@@ -31,11 +33,10 @@ class Main extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: Text('RECRUTER APP'),
-        backgroundColor: Colors.green[600],
+        backgroundColor: Color.fromRGBO(255, 205, 176, 100),
       ),
-      backgroundColor: Colors.greenAccent,
+      //backgroundColor: Colors.greenAccent,
       body: StartWidget(),
-      //drawer: DrawerWidget(),
     );
   }
 }

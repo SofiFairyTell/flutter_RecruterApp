@@ -9,6 +9,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(' '),
+      backgroundColor: Color.fromRGBO(255, 205, 176, 100),
       leading: IconButton(
         icon: Icon(Icons.menu),
         onPressed: () {

@@ -21,7 +21,7 @@ class StartWidget extends StatelessWidget {
                   bottom: Radius.elliptical(150, 80),
                 ),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/owl.jpg'),
+                  image: AssetImage('assets/images/startlogo.jpg'),
                   fit: BoxFit.cover,
                 ),
               ),
