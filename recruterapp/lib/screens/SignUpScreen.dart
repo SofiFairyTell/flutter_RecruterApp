@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruterapp/screens/Widgets/PhotoWidget.dart';
-
+// import 'package:firebase_storage/firebase_storage.dart';
 
 class SignUpScreen extends StatefulWidget {
   const   SignUpScreen({Key key}) : super(key: key);
@@ -106,4 +106,34 @@ class _SignUpScreen extends State<SignUpScreen>  {
 
     );
   }
+
+void imgOnTap(BuildContext context)
+{
+  // var test = uploadFileToFirebaseStorage;
+
+}
+  // Удалено в следствие нвозможности соединится с FireBase :( Проблема версий?
+  // Future<String> uploadFileToFirebaseStorage() async {
+  //   try {
+  //     // Создаем ссылку на экземпляр Firebase Storage
+  //     FirebaseStorage storage = FirebaseStorage.instance;
+  //
+  //     // Создаем ссылку на путь назначения файла в Firebase Storage
+  //     Reference storageRef = storage.ref().child('owl.jpg');
+  //
+  //     // Загружаем файл в Firebase Storage
+  //     UploadTask uploadTask = storageRef.putString('assets/images/owl.jpg');
+  //
+  //     // Ждем завершения загрузки файла и получаем URL-адрес загруженного файла
+  //     TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() {});
+  //     String downloadUrl = await taskSnapshot.ref.getDownloadURL();
+  //
+  //     // Возвращаем URL-адрес загруженного файла
+  //     return downloadUrl;
+  //   } catch (e) {
+  //     // Обрабатываем ошибку, если загрузка не удалась
+  //     print('Ошибка при загрузке файла в Firebase Storage: $e');
+  //     return null;
+  //   }
+  // }
 }

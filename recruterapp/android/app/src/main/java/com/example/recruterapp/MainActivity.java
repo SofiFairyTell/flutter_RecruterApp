@@ -1,4 +1,4 @@
-package com.example.untitled;
+package com.example.recruterapp;
 
 import io.flutter.embedding.android.FlutterActivity;
 
