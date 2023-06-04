@@ -5,9 +5,9 @@ class PhotoWidget extends StatelessWidget {
   final VoidCallback onPressed;
 
   const PhotoWidget({
-    Key key,
-    @required this.photoUrl,
-    @required this.onPressed,
+    Key? key,
+    required this.photoUrl,
+    required this.onPressed,
   }) : super(key: key);
 
   @override

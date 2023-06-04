@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruterapp/screens/Widgets/PhotoWidget.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const   SignUpScreen({Key key}) : super(key: key);
+  const   SignUpScreen({required Key? key}) : super(key: key);
 
   @override
   State<SignUpScreen> createState() => _SignUpScreen();
@@ -18,7 +17,7 @@ class _SignUpScreen extends State<SignUpScreen>  {
   TextEditingController nameController = TextEditingController();
 
   Future<void> signUp()
-  {
+  async {
     final navigator = Navigator.of(context);
     navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
   }

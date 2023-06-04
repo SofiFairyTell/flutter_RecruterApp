@@ -4,7 +4,7 @@ import 'Widgets/CustomButton.dart';
 import 'Widgets/AppBarCustom.dart';
 
 class ProfileScreen extends StatelessWidget {
-  ProfileScreen({Key key}) : super(key: key);
+  ProfileScreen({Key? key}) : super(key: key);
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -12,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBarCustom(scaffoldKey:scaffoldKey),
+      appBar: AppBarCustom(scaffoldKey:scaffoldKey, key: null,),
       backgroundColor: Colors.white,
       body:  SafeArea(
           child: Center(
@@ -26,13 +26,13 @@ class ProfileScreen extends StatelessWidget {
                       CustomButton(
                         firstText: 'Вакансии',
                         secondText:'Получите данные от проектной команды',
-                        onPressed: () => Navigator.pushNamed(context,'/vac'),
+                        onPressed: () => Navigator.pushNamed(context,'/vac'), key: null,
                       ),
                       const SizedBox(width: 10),
                       CustomButton(
                         firstText: 'Кандидаты',
                         secondText:'Подходящие участники команд',
-                        onPressed: () => Navigator.pushNamed(context,'/candidats'),
+                        onPressed: () => Navigator.pushNamed(context,'/candidats'), key: null,
                       ),
                     ],
                   ),
@@ -45,13 +45,13 @@ class ProfileScreen extends StatelessWidget {
                       CustomButton(
                         firstText: 'Аналитика',
                         secondText:'Выполните подбор проектной команды',
-                        onPressed: () => print('Pressed Аналитика'),
+                        onPressed: () => print('Pressed Аналитика'), key: null,
                       ),
                       const SizedBox(width: 10),
                       CustomButton(
                         firstText: 'Чаты',
                         secondText:'Общайтесь с проектной командой',
-                        onPressed: () => print('Pressed Чаты'),
+                        onPressed: () => print('Pressed Чаты'), key: null,
                       ),
                     ],
                   ),

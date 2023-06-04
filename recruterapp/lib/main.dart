@@ -16,16 +16,16 @@ void main() {
     routes: {
       '/': (context) => const Main(),
       '/settings': (context) => SettingsWidget(),
-      '/signup': (context) =>  SignUpScreen(),
+      '/signup': (context) =>  SignUpScreen(key: null,),
       '/profile': (context) =>  ProfileScreen(),
-      '/vac':(context) => VacancScreen(),
+      '/vac':(context) => VacancScreen(key: null,),
       '/candidats':(context) => CandidatScreen(),
     },
   ));
 }
 
 class Main extends StatelessWidget {
-  const Main({Key key}) : super(key: key);
+  const Main({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,7 @@ class Main extends StatelessWidget {
         backgroundColor: Color.fromRGBO(255, 205, 176, 100),
       ),
       //backgroundColor: Colors.greenAccent,
-      body: StartWidget(),
+      body: StartWidget(key: null,),
     );
   }
 }

@@ -6,14 +6,14 @@ import 'Widgets/AppBarCustom.dart';
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class SettingsWidget extends StatelessWidget {
-   SettingsWidget({Key key}) : super(key: key);
+   SettingsWidget({Key? key}) : super(key: key);
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBarCustom(scaffoldKey:scaffoldKey),
+      appBar: AppBarCustom(scaffoldKey:scaffoldKey, key: null,),
       drawer: DrawerWidget(),
         backgroundColor: Colors.white,
         body: SafeArea(

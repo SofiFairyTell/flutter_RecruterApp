@@ -3,7 +3,7 @@ import 'package:recruterapp/screens/ProfileScreen.dart';
 import 'package:recruterapp/screens/SignUpScreen.dart';
 
 class StartWidget extends StatelessWidget {
-  StartWidget({Key key}) : super(key: key);
+  StartWidget({required Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -47,12 +47,12 @@ class ButtonWidget extends StatelessWidget {
   final String text;
   final Function onPressed;
 
-  const ButtonWidget({@required this.text, @required this.onPressed});
+  const ButtonWidget({required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onPressed,
+      onPressed: onPressed(),
       child: Text(
         text,
         style: TextStyle(
@@ -69,7 +69,7 @@ void goToRegistration(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => SignUpScreen(),
+      builder: (context) => SignUpScreen(key: null,),
     ),
   );
 }

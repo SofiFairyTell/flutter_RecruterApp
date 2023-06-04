@@ -7,7 +7,7 @@ import 'Widgets/CardWidget.dart';
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class VacancScreen extends StatelessWidget {
-  VacancScreen({Key key}) : super(key: key);
+  VacancScreen({required Key? key}) : super(key: key);
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -43,7 +43,7 @@ class VacancScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: AppBarCustom(scaffoldKey:scaffoldKey),
+      appBar: AppBarCustom(scaffoldKey:scaffoldKey, key: null,),
       backgroundColor: Colors.white,
       body:  SafeArea(
         child: SingleChildScrollView(
@@ -67,7 +67,7 @@ class VacancScreen extends StatelessWidget {
         return CardWidget(
           title: cardData.title,
           description: cardData.description,
-          imageUrl: cardData.imageUrl,
+          imageUrl: cardData.imageUrl, key: null,
         );
       }).toList(),
     );

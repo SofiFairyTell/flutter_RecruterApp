@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recruterapp/main.dart';
 import 'package:recruterapp/screens/VacancScreen.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -93,7 +92,7 @@ void goToVacanScreen(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => VacancScreen(),
+      builder: (context) => VacancScreen(key: null,),
     ),
   );
 }

@@ -3,7 +3,7 @@ class UserInfo {
   String password;
   String email;
 
-  UserInfo({this.fullName, this.password, this.email});
+  UserInfo({required this.fullName, required this.password, required this.email});
 
   static UserInfo fromFormFields(String fullName, String password, String email) {
     return UserInfo(

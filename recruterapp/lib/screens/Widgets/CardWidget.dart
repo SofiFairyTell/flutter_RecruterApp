@@ -5,7 +5,7 @@ class CardData {
   final String description;
   final String imageUrl;
 
-  CardData({this.title, this.description, this.imageUrl});
+  CardData({required this.title, required this.description, required this.imageUrl});
 }
 
 class CardWidget extends StatelessWidget {
@@ -14,11 +14,13 @@ class CardWidget extends StatelessWidget {
   final String imageUrl;
 
   const CardWidget({
-    Key key,
-    @required this.title,
-    @required this.description,
-    @required this.imageUrl,
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.imageUrl,
   }) : super(key: key);
+
+
 
   @override
   Widget build(BuildContext context) {
